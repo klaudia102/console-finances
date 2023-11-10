@@ -86,3 +86,15 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+// 1. total of entries of data:
+
+console.log("Total Months : " + finances.length)
+
+
+// 2. Calculation of total income: 
+
+var total = 0;
+for (var i=0; i<finances.length; i++) {
+total += finances[i][1]
+}
+console.log('Total : $ ' total)

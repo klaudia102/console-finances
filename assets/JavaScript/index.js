@@ -97,4 +97,31 @@ var total = 0;
 for (var i=0; i<finances.length; i++) {
 total += finances[i][1]
 }
-console.log('Total : $ ' total)
+console.log('Total : $ ' + total)
+
+// 3. Calculation for average change in Profit/Losses: average change will be  i - (i--) from all data divided by finance.lenght
+
+var avarageChange = 0;
+
+var monthlyChange = 0;
+for (var i=0; i<finances.length; i++) {
+monthlyChange = (finances[i][1]) - (finances [i--][1])
+};
+console.log(monthlyChange) // should display diffrence in income month-to month
+
+var totalMonthlyChange = 0;
+for (var i=0; i<monthlyChange.length; i++) {
+  total += monthlyChange[i][1]
+  } 
+  // consol.log(totalMonthlyChange)  it should show sum of Losses and Profits
+
+  avarageChange = (totalMonthlyChange / finances.length)
+
+  // consol.log('Avarage Change : ' + avarageChange)
+
+
+  // 4. Greatest Increase in Profit/Losses - track how Protit/Losses changed month-to month and console log if i++>= i
+  // can use monthlyChange and for loop it!
+
+  // 5. Greater Decrease in Profit/Losses -  track how Protit/Losses changed month-to month and console log if i++<= i
+  // can use monthlyChange and for loop it!

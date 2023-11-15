@@ -1,6 +1,6 @@
 var finances = [
-  ['Jan-2010', 867884],
-  ['Feb-2010', 984655],
+  ['Jan-2010', 867884],   // tempSum = F2 - F1
+  ['Feb-2010', 984655],   //
   ['Mar-2010', 322013],
   ['Apr-2010', -69417],
   ['May-2010', 310503],
@@ -87,41 +87,55 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 // 1. total of entries of data:
-
 console.log("Total Months : " + finances.length)
 
-
 // 2. Calculation of total income: 
-
 var total = 0;
-for (var i=0; i<finances.length; i++) {
-total += finances[i][1]
+for (var i = 0; i < finances.length; i++) {
+  total += finances[i][1]
 }
 console.log('Total : $ ' + total)
 
-// 3. Calculation for average change in Profit/Losses: average change will be  i - (i--) from all data divided by finance.lenght
+// // 3. Calculation for average change in Profit/Losses: average change will be  i - (i--) from all data divided by finance.lenght
 
-var avarageChange = 0;
+var month;
+var amount = 0;
+var currentMonth;
+var prevAmount = 0;
+var change = 0;
+var TotalAvarageChange = 0
+var TotalM
 
-var monthlyChange = 0;
-for (var i=0; i<finances.length; i++) {
-monthlyChange = (finances[i][1]) - (finances [i--][1])
-};
-console.log(monthlyChange) // should display diffrence in income month-to month
+for (var i = 0; i < finances.length; i++) {
+  currentMonth = finances[i];
+  month = currentMonth[0];
+  amount = currentMonth[1];
 
-var totalMonthlyChange = 0;
-for (var i=0; i<monthlyChange.length; i++) {
-  total += monthlyChange[i][1]
-  } 
-  // consol.log(totalMonthlyChange)  it should show sum of Losses and Profits
+ if (i > 0) {
+  change = amount-prevAmount
+ } 
+prevAmount = amount
 
-  avarageChange = (totalMonthlyChange / finances.length)
+TotalAvarageChange += change; 
+}
 
-  // consol.log('Avarage Change : ' + avarageChange)
+//it should show sum of Losses and Profits
+var avarageChange = Math.round((TotalAvarageChange / (finances.length - 1)) * 100) / 100
+
+console.log('Avarage Change : ' + avarageChange)
 
 
-  // 4. Greatest Increase in Profit/Losses - track how Protit/Losses changed month-to month and console log if i++>= i
-  // can use monthlyChange and for loop it!
+ // 4. Greatest Increase in Profit/Losses 
+var greatestIncrease = ['', 0];
+if (change > greatestIncrease[1]) {
+   greatestIncrease = [month, change]
+}
+console.log('Greatest Decrease in Profits/Losses: ' + greatestIncrease)
 
-  // 5. Greater Decrease in Profit/Losses -  track how Protit/Losses changed month-to month and console log if i++<= i
-  // can use monthlyChange and for loop it!
+// 5. Greatest Decrease in Profit/Losses
+
+ var greatestDecrease = ['', Infinity]
+  if (change < greatestDecrease[1]) {
+    greatestDecrease = [month, change]
+  }
+  console.log('Greatest Increase in Profits/Losses: ' + greatestDecrease)

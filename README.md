@@ -12,8 +12,9 @@ N/A
 
 ## Usage
 
-Webpage should be used as tool to analyze, present and calculate financial data of the company.  Please see screenshots (assets/images/Screenshot1.png)
-P
+Webpage should be used as tool to analyze, present and calculate financial data of the company.  Please see screenshot ![screenshot](assets/Images/Screenshot1.png)
+
+
 
 ## Credits
 
